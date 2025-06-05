@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import kirby from '../assets/kirby.png'
 
 const Kirby = () => {
+  const navigate = useNavigate()
   const manejarClick = () => {
-    console.log('si funciona | Kirby');
+    navigate('/habilidades')
   };
 
   return (

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import pacman from '../assets/pacman.png'
 
 const Pacman = () => {
+  const navigate = useNavigate()
   const manejarClick = () => {
-    console.log('si funciona | Pacman');
+    navigate('/proyectos');
   };
 
   return (

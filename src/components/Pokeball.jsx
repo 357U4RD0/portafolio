@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png'
 
 const Pokeball = () => {
+  const navigate = useNavigate()
   const manejarClick = () => {
-    console.log('si funciona | Pokeball');
+    navigate('/contactos');
   };
 
   return (
