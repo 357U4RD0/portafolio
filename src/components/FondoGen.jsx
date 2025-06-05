@@ -22,12 +22,11 @@ const FondoGen = () => {
       canvas.height = height;
 
       cols = Math.floor(width / step);
-      // Inicializamos con valores negativos aleatorios grandes para escalonar el inicio
       drops = new Array(cols).fill(0).map(() => -Math.floor(Math.random() * 100));
     };
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'; // ← Estela más larga
       ctx.fillRect(0, 0, width, height);
 
       ctx.fillStyle = 'limegreen';
@@ -39,13 +38,14 @@ const FondoGen = () => {
         if (y > 0) {
           ctx.fillRect(x, y, squareSize, squareSize);
 
+          // Estela degradada
           ctx.fillStyle = 'rgba(50, 205, 50, 0.4)';
           ctx.fillRect(x, y - step, squareSize, squareSize);
 
           ctx.fillStyle = 'rgba(50, 205, 50, 0.2)';
           ctx.fillRect(x, y - 2 * step, squareSize, squareSize);
 
-          ctx.fillStyle = 'limegreen';
+          ctx.fillStyle = 'limegreen'; // Restablecer
         }
 
         drops[i]++;
@@ -57,7 +57,7 @@ const FondoGen = () => {
     };
 
     init();
-    const interval = setInterval(draw, 50);
+    const interval = setInterval(draw, 50); // ← Velocidad más lenta (antes estaba en ~16ms)
 
     window.addEventListener('resize', init);
 
@@ -74,10 +74,12 @@ const FondoGen = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        zIndex: 0,
         width: '100vw',
         height: '100vh',
+        zIndex: 0,
         display: 'block',
+        background: 'black',
+        pointerEvents: 'none'
       }}
     />
   );

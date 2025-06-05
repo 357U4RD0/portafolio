@@ -72,10 +72,7 @@ const TextoConstruido = ({ texto = 'Estuardo Castro', tamaño = 90 }) => {
     <div
       ref={contenedorRef}
       style={{
-        position: 'fixed',
-        top: '40%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
+        position: 'relative',
         width: 'fit-content',
         height: 'fit-content',
         userSelect: 'none',

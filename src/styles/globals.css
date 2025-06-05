@@ -5,12 +5,33 @@
   font-style: normal;
 }
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: black;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+  background: black !important;
   overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: -1;
 }
 
 .pixel-text {
@@ -22,4 +43,44 @@ body, html {
   font-size: 1.5rem;
   color: white;
   z-index: 1;
+}
+
+.pantalla-completa {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+}
+
+.centro-contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centro-columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'PressStart2P', monospace;
+  background-color: transparent;
+}
+
+.titulo-proyectos {
+  margin-bottom: 20px;
+  cursor: default;
+  font-size: 1.5rem;
+  user-select: none;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.z-alto {
+  z-index: 10;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }
