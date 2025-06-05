@@ -1,19 +1,19 @@
 import React from 'react';
-import pacman from '../assets/pacman.png'
+import pokeball from '../assets/pokeball.png'
 
-const Pacman = () => {
+const Pokeball = () => {
   const manejarClick = () => {
-    console.log('si funciona | Pacman');
+    console.log('si funciona | Pokeball');
   };
 
   return (
     <img
-      src={pacman}
-      alt="Pacman pixelado"
+      src={pokeball}
+      alt="Pokeball pixelada"
       style={{ width: 160, height: 160, cursor: 'pointer', imageRendering: 'pixelated' }}
       onClick={manejarClick}
     />
   );
 };
 
-export default Pacman;
+export default Pokeball;

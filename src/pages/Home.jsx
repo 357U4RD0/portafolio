@@ -1,50 +1,36 @@
 import React, { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FondoGen from '../components/FondoGen';
 import TextoConstruido from '../components/TextoConstruido';
 import Pacman from '../components/Pacman';
-
-gsap.registerPlugin(ScrollTrigger);
+import Kirby from '../components/Kirby';
+import Pokeball from '../components/Pokeball';
+import { AnimacionesHome, crearScrollTriggerHome, limpiarScrollTriggers } from '../animations/AniHome';
 
 const Home = () => {
   const proyectosRef = useRef(null);
   const pacmanRef = useRef(null);
-  const [mostrarTitulo, setMostrarTitulo] = useState(false);
+  const kirbyRef = useRef(null);
+  const pokeballRef = useRef(null);
+
+  const [mostrarSecciones, setMostrarSecciones] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = 'auto';
     document.documentElement.style.overflow = 'auto';
 
-    gsap.set(pacmanRef.current, {
-      opacity: 0,
-      y: 50,
-      scale: 0.8
-    });
+    if (mostrarSecciones) {
+      const timer = setTimeout(() => {
+        AnimacionesHome({ pacmanRef, kirbyRef, pokeballRef });
+      }, 0);
+      return () => clearTimeout(timer);
+    }
 
-    ScrollTrigger.create({
-      trigger: proyectosRef.current,
-      start: "top 80%",
-      end: "bottom 20%",
-      onEnter: () => {
-        setMostrarTitulo(true);
-
-        setTimeout(() => {
-          gsap.to(pacmanRef.current, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)"
-          });
-        }, 1500);
-      }
-    });
+    const scrollTriggerInstance = crearScrollTriggerHome(proyectosRef, setMostrarSecciones);
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      limpiarScrollTriggers();
     };
-  }, []);
+  }, [mostrarSecciones]);
 
   return (
     <>
@@ -59,28 +45,41 @@ const Home = () => {
         className="pantalla-completa centro-columna z-alto"
         style={{ gap: '40px', position: 'relative' }}
       >
-        {mostrarTitulo && (
+        {mostrarSecciones && (
           <div
-            ref={pacmanRef}
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '20px',
-              position: 'relative'
+              gap: '100px'
             }}
           >
-            <div
-              style={{
-                position: 'relative',
-                top: '-100px',
-                left: '-250px'
-              }}
-            >
-              <TextoConstruido texto="Mis Proyectos" tamaño={48} />
+            {/* Primera fila: Pacman y Kirby */}
+            <div style={{ display: 'flex', gap: '550px', justifyContent: 'center', width: '100%' }}>
+              {/* Mis Proyectos - Pacman */}
+              <div ref={pacmanRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ position: 'absolute', top: '-120px', left: '-100%', transform: 'translateX(-50%)' }}>
+                  <TextoConstruido texto="Mis Proyectos" tamaño={40} />
+                </div>
+                <Pacman />
+              </div>
+
+              {/* Mis Habilidades - Kirby */}
+              <div ref={kirbyRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ position: 'absolute', top: '-120px', left: '-140%', transform: 'translateX(-50%)' }}>
+                  <TextoConstruido texto="Mis Habilidades" tamaño={40} />
+                </div>
+                <Kirby />
+              </div>
             </div>
 
-            <Pacman />
+            {/* Segunda fila: Pokeball con Contacto*/}
+            <div ref={pokeballRef} style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ position: 'absolute', top: '-100px', left: '-70%', transform: 'translateX(-50%)' }}>
+                <TextoConstruido texto="Contacto" tamaño={40} />
+              </div>
+              <Pokeball />
+            </div>
           </div>
         )}
       </section>
