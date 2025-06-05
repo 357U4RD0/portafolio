@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.contacto-contenedor {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fondo-borroso {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/Kanto.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  z-index: 0;
+}
+
+.contenido-nitido {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.titulo-contacto {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+  color: white;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.7);
+  margin-bottom: 80px;
+}
+
+.instagram-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.insta-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s ease;
+}
+
+.insta-link:hover {
+  transform: scale(1.05);
+}
+
+.insta-img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  transition: filter 0.1s ease;
+}
+
+.insta-link:hover .insta-img {
+  filter: brightness(1.2);
+}
+
+.insta-texto {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-left: 20px;
+}
+
+.cv-container {
+  display: flex;
+  align-items: center;
+}
+
+.boton-cv {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2em;
+  padding: 15px 30px;
+  background-color: #39ff14;
+  color: black;
+  border: 4px solid black;
+  border-radius: 0;
+  box-shadow: 8px 8px 0px black;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.1s ease;
+}
+
+.boton-cv:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0px black;
+}
+
+.flecha {
+  font-size: 1.5em;
+  display: inline-block;
+  transform: translateY(2px);
+}
+
+.cv-texto {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5em;
+  color: white;
+  margin-left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.boton-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8em;
+  background-color: #ffffffcc;
+  border: 2px solid black;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px black;
+  transition: all 0.1s ease;
+}
+
+.boton-home:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px black;
+}
