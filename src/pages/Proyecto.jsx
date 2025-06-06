@@ -1,14 +1,39 @@
 import React from 'react';
 import FondoConBlur from '../components/FondoconBlur';
-import MapaPacman from '../assets/MapaPacman.webp'; 
+import MapaPacman from '../assets/MapaPacman.webp';
+import '../styles/Proyecto.css';
+import ECommerce from '../assets/ECommerce.png'
 
 const Proyecto = () => {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', zIndex: 1 }}>
+    <div className="proyecto-fondo">
       <FondoConBlur imagenFondo={MapaPacman} blur="8px" />
-      <h1 style={{ color: 'white', textAlign: 'center', paddingTop: '50px' }}>
-        Página de Proyectos
-      </h1>
+      <a href="./" className="proyecto-home-btn">Home</a>
+
+      <h1 className="proyecto-titulo">Mis Proyectos</h1>
+      <div className="proyecto-cards">
+
+        <div className="proyecto-card">
+          <img src={ECommerce} alt="ECommerce" />
+          <a href="https://e-commerce-vert-one-69.vercel.app/" className="proyecto-link">ECommerce</a>
+          <p>ECommerce con ambientación en la venta de videojuegos que posee una vista detalles y una vista carrito.</p>
+          <p><strong>Tecnologías usadas:</strong> Js, Jsx, Css, React Vite, React Router</p>
+        </div>
+
+        <div className="proyecto-card">
+          <img src="https://via.placeholder.com/300x200.png?text=Incidentes" alt="Incidentes" />
+          <a href="#" className="proyecto-link">Incidentes</a>
+          <p>Página para crear, modificar, eliminar o alterar el estado de algún incidente.</p>
+          <p><strong>Tecnologías usadas:</strong> APIs, Js, CSS</p>
+        </div>
+
+        <div className="proyecto-card">
+          <img src="https://via.placeholder.com/300x200.png?text=Tu+Proyecto" alt="Tu Proyecto" />
+          <a href="#" className="proyecto-link">Tu Proyecto</a>
+          <p>Descripción de tu proyecto aquí.</p>
+          <p><strong>Tecnologías usadas:</strong> ...</p>
+        </div>
+      </div>
     </div>
   );
 };
