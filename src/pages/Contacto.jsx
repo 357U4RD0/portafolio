@@ -12,7 +12,7 @@ const Contacto = () => {
     <div className="contacto-contenedor">
       <div className="fondo-borroso"></div>
 
-      <button className="boton-home" onClick={() => navigate('./')}>
+      <button className="boton-home" onClick={() => navigate('/')}>
         Home
       </button>
 
