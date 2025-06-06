@@ -5,6 +5,7 @@ import Pacman from '../components/Pacman';
 import Kirby from '../components/Kirby';
 import Pokeball from '../components/Pokeball';
 import { AnimacionesHome, crearScrollTriggerHome, limpiarScrollTriggers } from '../animations/AniHome';
+import BarraSuperior from '../components/BarraSuperior';
 
 const Home = () => {
   const proyectosRef = useRef(null);
@@ -34,6 +35,7 @@ const Home = () => {
 
   return (
     <>
+      <BarraSuperior />
       <FondoGen />
 
       <section className="pantalla-completa centro-contenido">

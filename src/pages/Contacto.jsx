@@ -4,11 +4,14 @@ import Kanto from '../assets/Kanto.png';
 import { useNavigate } from 'react-router-dom';
 import MiCV from '../assets/MiCV.pdf';
 import '../styles/Contacto.css';
+import BarraSuperior from '../components/BarraSuperior';
 
 const Contacto = () => {
   const navigate = useNavigate();
 
   return (
+    <>
+    <BarraSuperior />
     <div className="contacto-contenedor">
       <div className="fondo-borroso"></div>
 
@@ -39,6 +42,7 @@ const Contacto = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
