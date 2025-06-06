@@ -4,6 +4,7 @@ import MapaPacman from '../assets/MapaPacman.webp';
 import '../styles/Proyecto.css';
 import ECommerce from '../assets/ECommerce.png';
 import Animes from '../assets/Animes.png';
+import Incidentes from '../assets/Incidentes.png';
 import BarraSuperior from '../components/BarraSuperior';
 
 const Proyecto = () => {
@@ -25,7 +26,7 @@ const Proyecto = () => {
         </div>
 
         <div className="proyecto-card">
-          <img src="https://via.placeholder.com/300x200.png?text=Incidentes" alt="Incidentes" />
+          <img src={Incidentes} alt="Incidentes" />
           <a href="#" className="proyecto-link">Incidentes</a>
           <p>Página para crear, modificar, eliminar o alterar el estado de algún incidente.</p>
           <p><strong>Tecnologías usadas:</strong> APIs, Js, CSS, HTML</p>
@@ -33,8 +34,8 @@ const Proyecto = () => {
 
         <div className="proyecto-card">
           <img src={Animes} alt="Tu Proyecto" />
-          <a href="http://awita.site/usuarios/cas23890/useMemo/" className="proyecto-link">Buscador Animes</a>
-          <p>Página con filtrado de búsqueda guardados y agregado de animes con sus descripciones</p>
+          <a href="http://awita.site/usuarios/cas23890/useMemo/" className="proyecto-link">Buscador</a>
+          <p>Página con filtrado de búsqueda guardados y agregado con descripciones</p>
           <p><strong>Tecnologías usadas:</strong> Hook useMemo de React, Js, CSS, HTML</p>
         </div>
       </div>
